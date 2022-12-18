@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: book_route
+          uri: http://localhost:8081/books/**
+          predicates:
+            - Path=/books/**
+        - id: profile_route
+          uri: http://localhost:8082/profiles/**
+          predicates:
+            - Path=/profiles/**
