@@ -11,17 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@RestController
-@RequestMapping("/profiles")
 public class ProfileServiceApplication {
 
 	@Value("${properties.mark}")
 	private String mark;
-
-	@GetMapping("/")
-	public String list() {
-		return "profile list " + mark;
-	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProfileServiceApplication.class, args);
