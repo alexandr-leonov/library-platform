@@ -6,10 +6,18 @@ spring:
     gateway:
       routes:
         - id: book_route
-          uri: http://localhost:8081/books/**
+          uri: http://localhost:8081/products/**
           predicates:
-            - Path=/books/**
+            - Path=/products/**
         - id: profile_route
           uri: http://localhost:8082/profiles/**
           predicates:
             - Path=/profiles/**
+        - id: order_route
+          uri: http://localhost:8083/orders/**
+          predicates:
+            - Path=/orders/**
+        - id: payment_route
+          uri: http://localhost:8083/payments/**
+          predicates:
+            - Path=/payments/**

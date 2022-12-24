@@ -2,4 +2,4 @@ server:
   port: 8082
 
 properties:
-  mark: fromconfigservice2
+  mark: profile-service

@@ -15,10 +15,13 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>book-service</module>
-        <module>config-service</module>
         <module>gateway-service</module>
+        <module>config-service</module>
+
+        <module>product-service</module>
         <module>profile-service</module>
+        <module>payment-service</module>
+        <module>order-service</module>
     </modules>
 
     <properties>
