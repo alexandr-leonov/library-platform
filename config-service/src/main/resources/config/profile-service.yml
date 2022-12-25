@@ -3,3 +3,18 @@ server:
 
 properties:
   mark: profile-service
+
+cache:
+  cron:
+    profile:
+      clear: "0 */5 * ? * *"
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE

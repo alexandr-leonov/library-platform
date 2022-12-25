@@ -1,12 +1,12 @@
 package ru.leonov.profile.dao;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
+import ru.leonov.profile.dao.repository.UserRepository;
 import ru.leonov.profile.model.dto.UserDto;
 import ru.leonov.profile.model.mapper.UserMapper;
-import ru.leonov.profile.dao.repository.UserRepository;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -20,6 +20,7 @@ public class UserDao {
         return repository.save(entity).getId();
     }
 
+    @Cacheable(value = "user", key = "#userId")
     public UserDto findById(UUID userId) {
         var entity = repository.findById(userId);
         if (entity.isEmpty()) {
