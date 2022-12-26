@@ -1,5 +1,6 @@
 package ru.leonov.profile.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class ProfileController {
     private final ProfileService profileService;
 
     @PostMapping("/create")
-    public ResponseEntity<IdDto> registration(@RequestBody UserDto userDto) {
+    public ResponseEntity<IdDto> registration(@Valid @RequestBody UserDto userDto) {
         var id = profileService.registration(userDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(new IdDto(id));
     }

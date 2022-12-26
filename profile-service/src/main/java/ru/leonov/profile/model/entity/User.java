@@ -37,20 +37,12 @@ public class User {
     protected String updatedBy;
 
 
-    private static final String PHONE_FORMATTER = "^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$";
-
-    @NotBlank
     @Column(name = "name", nullable = false, length = 200)
     private String name;
-    @PositiveOrZero
     @Column(name = "amount", nullable = false, length = 100)
     private BigDecimal amount;
-
-    @Email(message = "Invalid email")
     @Column(name = "email", length = 200)
     private String email;
-
-    @Pattern(regexp = PHONE_FORMATTER, message = "Invalid phone number")
     @Column(name = "phone", length = 20)
     private String phone;
 

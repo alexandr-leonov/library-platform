@@ -89,7 +89,12 @@
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 
-
+		<!-- shed lock -->
+		<dependency>
+			<groupId>net.javacrumbs.shedlock</groupId>
+			<artifactId>shedlock-spring</artifactId>
+			<version>${schedlock.version}</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>

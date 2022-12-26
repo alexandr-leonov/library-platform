@@ -1,4 +1,4 @@
-package ru.leonov.profile.dao.repository;
+package ru.leonov.profile.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import ru.leonov.profile.model.entity.User;
