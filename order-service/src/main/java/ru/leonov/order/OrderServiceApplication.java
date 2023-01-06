@@ -1,5 +1,7 @@
 package ru.leonov.order;
 
+import io.sentry.Sentry;
+import io.sentry.SentryLevel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,6 +30,7 @@ public class OrderServiceApplication {
 	}
 
 	public static void main(String[] args) {
+		Sentry.captureMessage("Order service started!", SentryLevel.INFO);
 		SpringApplication.run(OrderServiceApplication.class, args);
 	}
 

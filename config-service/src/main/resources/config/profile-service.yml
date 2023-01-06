@@ -24,3 +24,13 @@ logging:
           descriptor:
             sql:
               BasicBinder: TRACE
+
+sentry:
+  dsn: $PROFILE_URI
+  # Set traces-sample-rate to 1.0 to capture 100% of transactions for performance monitoring.
+  # We recommend adjusting this value in production.
+  traces-sample-rate: 1.0
+  debug: true
+  logging:
+    enabled: true
+    minimum-event-level: info

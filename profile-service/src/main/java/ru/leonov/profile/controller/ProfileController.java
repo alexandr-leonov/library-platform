@@ -1,5 +1,6 @@
 package ru.leonov.profile.controller;
 
+import io.sentry.spring.tracing.SentrySpan;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

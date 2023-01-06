@@ -20,7 +20,7 @@ spring:
           predicates:
             - Path=/profiles/**
         - id: order_route
-          uri: http://localhost:8083/orders/**
+          uri: http://localhost:8084/orders/**
           predicates:
             - Path=/orders/**
         - id: payment_route

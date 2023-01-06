@@ -22,6 +22,7 @@ public class PaymentServiceApplication {
 	}
 
 	public static void main(String[] args) {
+//		Sentry.captureMessage("Payment service started!", SentryLevel.INFO);
 		SpringApplication.run(PaymentServiceApplication.class, args);
 	}
 

@@ -31,6 +31,8 @@
         <mapstruct.version>1.5.3.Final</mapstruct.version>
         <lombok.version>1.18.24</lombok.version>
         <schedlock.version>5.0.1</schedlock.version>
+        <sentry.version>6.10.0</sentry.version>
+        <sentry.bom.version>6.7.1</sentry.bom.version>
     </properties>
 
 </project>
