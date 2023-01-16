@@ -11,13 +11,13 @@ name: Build all services
 on:
   push:
     branches: [ "master" ]
-    paths:
-      - "config-service/**"
-      - "gateway-service/**"
-      - "order-service/**"
-      - "payment-service/**"
-      - "profile-service/**"
-      - "product-service/**"
+#     paths:
+#       - "config-service/**"
+#       - "gateway-service/**"
+#       - "order-service/**"
+#       - "payment-service/**"
+#       - "profile-service/**"
+#       - "product-service/**"
   pull_request:
     branches: [ "master" ]
     
