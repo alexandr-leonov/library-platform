@@ -8,7 +8,7 @@ management:
         include: "*"
 
 properties:
-  mark: book-service
+  mark: product-service
 
 sentry:
   dsn: $PRODUCT_URI
