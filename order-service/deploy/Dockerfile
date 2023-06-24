@@ -6,7 +6,7 @@ EXPOSE 8761
 EXPOSE 8084
 EXPOSE 9092
 
-WORKDIR /order-service
-COPY ./target/. .
+RUN ls -all
+COPY order-service/target/. .
 
 ENTRYPOINT ["java","-jar","order-service-1.0.jar"]
