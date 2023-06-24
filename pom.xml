@@ -15,8 +15,9 @@
     <version>1.0</version>
     <packaging>pom</packaging>
     <modules>
-        <module>gateway-service</module>
         <module>config-service</module>
+        <module>discovery-service</module>
+        <module>gateway-service</module>
 
         <module>product-service</module>
         <module>profile-service</module>
@@ -33,5 +34,6 @@
         <schedlock.version>5.0.1</schedlock.version>
         <sentry.version>6.10.0</sentry.version>
         <sentry.bom.version>6.7.1</sentry.bom.version>
+        <spring-cloud.version>2022.0.3</spring-cloud.version>
     </properties>
 </project>
