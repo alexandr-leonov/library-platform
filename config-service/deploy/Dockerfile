@@ -1,4 +1,4 @@
-FROM openjdk:17.0.7-jdk
+FROM openjdk:17
 
 EXPOSE 80
 EXPOSE 8888
