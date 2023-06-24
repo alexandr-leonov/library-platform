@@ -114,7 +114,10 @@ jobs:
     if: github.ref == 'refs/heads/order-service'
     steps:
       - name: Deploy app
-        run: echo "Start deploy order service"
+        run: cd order-service &&
+           docker build  -t ${{ secrets.DOCKER_HUB_LOGIN }}/order-service:latest -f- ./ < Dockerfile &&
+           docker login -u ${{ secrets.DOCKER_HUB_LOGIN }} -p ${{ secrets.DOCKER_HUB_PASSWORD }} &&
+           docker push ${{ secrets.DOCKER_HUB_LOGIN }}/order-service:latest
 
   build-profile-service:
     runs-on: ubuntu-latest
