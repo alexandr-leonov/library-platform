@@ -114,7 +114,7 @@ jobs:
     if: github.ref == 'refs/heads/order-service'
     steps:
       - name: Deploy app
-        run: cd order-service/deploy &&
+        run: cd ls -all && /order-service/deploy &&
            docker build  -t ${{ secrets.DOCKER_HUB_LOGIN }}/order-service:latest -f- ./ < Dockerfile &&
            docker login -u ${{ secrets.DOCKER_HUB_LOGIN }} -p ${{ secrets.DOCKER_HUB_PASSWORD }} &&
            docker push ${{ secrets.DOCKER_HUB_LOGIN }}/order-service:latest
