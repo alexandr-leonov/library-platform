@@ -6,7 +6,6 @@ EXPOSE 8761
 EXPOSE 8084
 EXPOSE 9092
 
-RUN ls -all
-COPY order-service/target/. .
+COPY target/. .
 
 ENTRYPOINT ["java","-jar","order-service-1.0.jar"]

@@ -6,7 +6,6 @@ EXPOSE 8761
 EXPOSE 8080
 EXPOSE 9092
 
-WORKDIR /gateway-service
-COPY ./target/. .
+COPY target/. .
 
 ENTRYPOINT ["java","-jar","gateway-service-1.0.jar"]

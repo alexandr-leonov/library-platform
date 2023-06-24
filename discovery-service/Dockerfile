@@ -5,7 +5,6 @@ EXPOSE 8888
 EXPOSE 8761
 EXPOSE 9092
 
-WORKDIR /discovery-service
-COPY ./target/. .
+COPY target/. .
 
 ENTRYPOINT ["java","-jar","discovery-service-1.0.jar"]

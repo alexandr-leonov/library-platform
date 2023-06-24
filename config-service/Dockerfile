@@ -5,7 +5,6 @@ EXPOSE 8888
 EXPOSE 8761
 EXPOSE 9092
 
-WORKDIR /config-service
-COPY ./target/. .
+COPY target/. .
 
 ENTRYPOINT ["java","-jar","config-service-1.0.jar"]
