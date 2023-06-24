@@ -111,7 +111,7 @@ jobs:
       - name: Check
         run: ls -all
       - name: Deploy app
-        run: order-service/deploy &&
+        run: cd order-service/deploy &&
           docker build  -t ${{ secrets.DOCKER_HUB_LOGIN }}/order-service:latest -f- ./ < Dockerfile &&
           docker login -u ${{ secrets.DOCKER_HUB_LOGIN }} -p ${{ secrets.DOCKER_HUB_PASSWORD }} &&
           docker push ${{ secrets.DOCKER_HUB_LOGIN }}/order-service:latest
