@@ -28,7 +28,7 @@ spring:
           predicates:
             - Path=/orders/**
         - id: payment_route
-          uri: http://localhost:8083/payments/**
+          uri: http://${PAYMENT_SERVICE_HOST}:${PAYMENT_SERVICE_PORT}/payments/**
           predicates:
             - Path=/payments/**
 

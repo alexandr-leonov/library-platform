@@ -22,3 +22,5 @@ eureka:
       defaultZone: http://${EUREKA_HOST}:${EUREKA_PORT}/eureka
       instance:
         preferIpAddress: true
+  instance:
+    hostname: http://${PRODUCT_SERVICE_HOST}:${PRODUCT_SERVICE_PORT}
