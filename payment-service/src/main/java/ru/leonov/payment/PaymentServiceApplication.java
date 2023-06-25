@@ -1,5 +1,7 @@
 package ru.leonov.payment;
 
+import io.sentry.Sentry;
+import io.sentry.SentryLevel;
 import org.apache.commons.lang.NotImplementedException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -9,8 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.UUID;
 
 @EnableDiscoveryClient
 @SpringBootApplication
@@ -31,7 +31,7 @@ public class PaymentServiceApplication {
 	}
 
 	public static void main(String[] args) {
-//		Sentry.captureMessage("Payment service started!", SentryLevel.INFO);
+		Sentry.captureMessage("Payment service started!", SentryLevel.INFO);
 		SpringApplication.run(PaymentServiceApplication.class, args);
 	}
 
