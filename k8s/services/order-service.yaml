@@ -58,3 +58,5 @@ spec:
               value: $(DISCOVERY_SERVICE_SERVICE_HOST)
             - name: EUREKA_PORT
               value: $(DISCOVERY_SERVICE_SERVICE_PORT)
+            - name: SENTRY_DSN
+              value: ${{ secrets.PAYMENT_SENTRY }}
