@@ -24,4 +24,14 @@ Digital marketplace
 For debug use:
 > kubectl port-forward kafka-0 9092:9092 -n library-platform
 
+# install services
+> kubectl apply -f services/config-service.yaml
+> kubectl apply -f services/discovery-service.yaml
+> kubectl apply -f services/gateway-service.yaml
+> kubectl apply -f services/order-service.yaml
+> kubectl apply -f services/payment-service.yaml
+> kubectl apply -f services/product-service.yaml
+> kubectl apply -f services/profile-service.yaml
+
+For details about work with k8s use first material: https://tproger.ru/articles/podnimaem-stend-spring-mikroservisov-v-kubernetes
 ```
