@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SentryConfig {
 
-//    @Bean
+    @Bean
     public boolean sentryInit(@Value("${sentry.dsn}") String dsn) {
         Sentry.init(options -> options.setDsn(dsn));
         return Sentry.isEnabled();
