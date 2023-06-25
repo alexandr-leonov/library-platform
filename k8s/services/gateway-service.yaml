@@ -56,3 +56,7 @@ spec:
               value: $(DISCOVERY_SERVICE_SERVICE_HOST)
             - name: EUREKA_PORT
               value: $(DISCOVERY_SERVICE_SERVICE_PORT)
+            - name: PAYMENT_SERVICE_HOST
+              value: $(PAYMENT_SERVICE_SERVICE_HOST)
+            - name: PAYMENT_SERVICE_PORT
+              value: $(PAYMENT_SERVICE_SERVICE_PORT)
