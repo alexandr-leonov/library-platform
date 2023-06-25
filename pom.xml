@@ -32,8 +32,8 @@
         <mapstruct.version>1.5.3.Final</mapstruct.version>
         <lombok.version>1.18.24</lombok.version>
         <schedlock.version>5.0.1</schedlock.version>
-        <sentry.version>6.10.0</sentry.version>
-        <sentry.bom.version>6.7.1</sentry.bom.version>
+        <sentry.version>6.23.0</sentry.version>
+        <sentry.bom.version>6.23.0</sentry.bom.version>
         <spring-cloud.version>2022.0.3</spring-cloud.version>
     </properties>
 </project>
