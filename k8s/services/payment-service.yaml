@@ -49,3 +49,12 @@ spec:
               name: discovery
             - containerPort: 9092
               name: kafka
+          env:
+            - name: CONFIG_SERVICE_HOST
+              value: $(CONFIG_SERVICE_SERVICE_HOST)
+            - name: CONFIG_SERVICE_PORT
+              value: $(CONFIG_SERVICE_SERVICE_PORT)
+            - name: EUREKA_HOST
+              value: $(DISCOVERY_SERVICE_SERVICE_HOST)
+            - name: EUREKA_PORT
+              value: $(DISCOVERY_SERVICE_SERVICE_PORT)

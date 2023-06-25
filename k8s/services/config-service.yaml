@@ -45,3 +45,8 @@ spec:
               name: config
             - containerPort: 8761
               name: discovery
+          env:
+            - name: EUREKA_HOST
+              value: $(DISCOVERY_SERVICE_SERVICE_HOST)
+            - name: EUREKA_PORT
+              value: $(DISCOVERY_SERVICE_SERVICE_PORT)
