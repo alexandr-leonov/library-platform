@@ -47,3 +47,8 @@ spec:
               name: config
             - containerPort: 8761
               name: discovery
+          env:
+            - name: CONFIG_SERVICE_HOST
+              value: $(CONFIG_SERVICE_HOST)
+            - name: CONFIG_SERVICE_PORT
+              value: $(CONFIG_SERVICE_PORT)
