@@ -32,7 +32,8 @@ For debug use:
 > kubectl apply -f services/payment-service.yaml
 > kubectl apply -f services/product-service.yaml
 > kubectl apply -f services/profile-service.yaml
-
-For details about work with k8s use first material:
-- https://tproger.ru/articles/podnimaem-stend-spring-mikroservisov-v-kubernetes
 ```
+
+## Links for materials:
+- https://tproger.ru/articles/podnimaem-stend-spring-mikroservisov-v-kubernetes
+
