@@ -27,7 +27,12 @@ public class PaymentServiceApplication {
 
 	@GetMapping("/{paymentId}")
 	public String payment(@PathVariable("paymentId") Long id) {
-		throw new NotImplementedException(String.format("Not implemented method! Input param %d", id));
+		try {
+			throw new NotImplementedException(String.format("Not implemented method! Input param %d", id));
+		} catch (Exception e) {
+			Sentry.captureException(e);
+			throw e;
+		}
 	}
 
 	public static void main(String[] args) {
