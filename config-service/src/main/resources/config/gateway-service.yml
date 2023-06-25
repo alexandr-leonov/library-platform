@@ -10,13 +10,17 @@ management:
 spring:
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
-        - id: book_route
-          uri: http://localhost:8081/products/**
+        - id: product_route
+          uri: lb://product-service
           predicates:
             - Path=/products/**
         - id: profile_route
-          uri: http://localhost:8082/profiles/**
+          uri: lb://profile-service
           predicates:
             - Path=/profiles/**
         - id: order_route

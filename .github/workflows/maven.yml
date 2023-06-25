@@ -13,6 +13,7 @@ on:
     branches: [
       "config-service",
       "gateway-service",
+      "discovery-service",
       "order-service",
       "payment-service",
       "profile-service",
@@ -22,6 +23,7 @@ on:
     branches: [
       "config-service",
       "gateway-service",
+      "discovery-service",
       "order-service",
       "payment-service",
       "profile-service",
@@ -30,8 +32,9 @@ on:
     
 
 jobs:
-  build:
+  build-config-service:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/config-service'
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -40,47 +43,124 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build all artifacts
-      run: mvn -B clean install -Dmaven.test.skip=true
-  deploy-config-service:
+    - name: Build config-service artifact
+      run: mvn -pl config-service clean install
+    - name: Deploy app
+      run: cd config-service  &&
+        docker build  -t ${{ secrets.DOCKER_HUB_LOGIN }}/config-service:latest -f- ./ < Dockerfile &&
+        docker login -u ${{ secrets.DOCKER_HUB_LOGIN }} -p ${{ secrets.DOCKER_HUB_PASSWORD }} &&
+        docker push ${{ secrets.DOCKER_HUB_LOGIN }}/config-service:latest
+
+  build-gateway-service:
     runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/config-service'
-    steps:
-      - name: Deploy app
-        run: echo "Start deploy config service"
-  deploy-gateway-service:
-    runs-on: ubuntu-latest
-    needs: build
     if: github.ref == 'refs/heads/gateway-service'
     steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build gateway-service artifact
+        run: mvn -pl gateway-service clean install
       - name: Deploy app
-        run: echo "Start deploy gateway service"
-  deploy-order-service:
+        run: cd gateway-service &&
+          docker build  -t ${{ secrets.DOCKER_HUB_LOGIN }}/gateway-service:latest -f- ./ < Dockerfile &&
+          docker login -u ${{ secrets.DOCKER_HUB_LOGIN }} -p ${{ secrets.DOCKER_HUB_PASSWORD }} &&
+          docker push ${{ secrets.DOCKER_HUB_LOGIN }}/gateway-service:latest
+
+  build-discovery-service:
     runs-on: ubuntu-latest
-    needs: build
+    if: github.ref == 'refs/heads/discovery-service'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build discovery-service artifact
+        run: mvn -pl discovery-service clean install
+      - name: Deploy app
+        run: cd discovery-service &&
+          docker build  -t ${{ secrets.DOCKER_HUB_LOGIN }}/discovery-service:latest -f- ./ < Dockerfile &&
+          docker login -u ${{ secrets.DOCKER_HUB_LOGIN }} -p ${{ secrets.DOCKER_HUB_PASSWORD }} &&
+          docker push ${{ secrets.DOCKER_HUB_LOGIN }}/discovery-service:latest
+
+  build-order-service:
+    runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/order-service'
     steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build order-service artifact
+        run: mvn -pl order-service clean install -Dmaven.test.skip=true
       - name: Deploy app
-        run: echo "Start deploy order service"
-  deploy-profile-service:
+        run: cd order-service &&
+          docker build  -t ${{ secrets.DOCKER_HUB_LOGIN }}/order-service:latest -f- ./ < Dockerfile &&
+          docker login -u ${{ secrets.DOCKER_HUB_LOGIN }} -p ${{ secrets.DOCKER_HUB_PASSWORD }} &&
+          docker push ${{ secrets.DOCKER_HUB_LOGIN }}/order-service:latest
+
+  build-profile-service:
     runs-on: ubuntu-latest
-    needs: build
     if: github.ref == 'refs/heads/profile-service'
     steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build profile-service artifact
+        run: mvn -pl profile-service clean install -Dmaven.test.skip=true
       - name: Deploy app
-        run: echo "Start deploy profile service"
-  deploy-payment-service:
+        run: cd profile-service &&
+          docker build  -t ${{ secrets.DOCKER_HUB_LOGIN }}/profile-service:latest -f- ./ < Dockerfile &&
+          docker login -u ${{ secrets.DOCKER_HUB_LOGIN }} -p ${{ secrets.DOCKER_HUB_PASSWORD }} &&
+          docker push ${{ secrets.DOCKER_HUB_LOGIN }}/profile-service:latest
+
+  build-payment-service:
     runs-on: ubuntu-latest
-    needs: build
     if: github.ref == 'refs/heads/payment-service'
     steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build payment-service artifact
+        run: mvn -pl payment-service clean install -Dmaven.test.skip=true
       - name: Deploy app
-        run: echo "Start deploy payment service"
-  deploy-product-service:
+        run: cd payment-service &&
+          docker build  -t ${{ secrets.DOCKER_HUB_LOGIN }}/payment-service:latest -f- ./ < Dockerfile &&
+          docker login -u ${{ secrets.DOCKER_HUB_LOGIN }} -p ${{ secrets.DOCKER_HUB_PASSWORD }} &&
+          docker push ${{ secrets.DOCKER_HUB_LOGIN }}/payment-service:latest
+
+  build-product-service:
     runs-on: ubuntu-latest
-    needs: build
     if: github.ref == 'refs/heads/product-service'
     steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build product-service artifact
+        run: mvn -pl product-service clean install -Dmaven.test.skip=true
       - name: Deploy app
-        run: echo "Start deploy product service"
+        run: cd product-service &&
+          docker build  -t ${{ secrets.DOCKER_HUB_LOGIN }}/product-service:latest -f- ./ < Dockerfile &&
+          docker login -u ${{ secrets.DOCKER_HUB_LOGIN }} -p ${{ secrets.DOCKER_HUB_PASSWORD }} &&
+          docker push ${{ secrets.DOCKER_HUB_LOGIN }}/product-service:latest

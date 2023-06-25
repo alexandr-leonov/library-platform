@@ -1,6 +1,5 @@
 package ru.leonov.profile.controller;
 
-import io.sentry.spring.tracing.SentrySpan;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -10,6 +9,7 @@ import ru.leonov.profile.model.dto.IdDto;
 import ru.leonov.profile.model.dto.UserDto;
 import ru.leonov.profile.service.ProfileService;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -17,6 +17,11 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ProfileController {
     private final ProfileService profileService;
+
+    @GetMapping
+    public List<UserDto> users() {
+        return List.of();
+    }
 
     @PostMapping("/create")
     public ResponseEntity<IdDto> registration(@Valid @RequestBody UserDto userDto) {
