@@ -11,7 +11,7 @@ properties:
   mark: payment-service
 
 sentry:
-  dsn: ${{ secrets.PAYMENT_SENTRY }}
+  dsn: ${SENTRY_DSN}
   # Set traces-sample-rate to 1.0 to capture 100% of transactions for performance monitoring.
   # We recommend adjusting this value in production.
   traces-sample-rate: 1.0
