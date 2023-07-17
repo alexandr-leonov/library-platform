@@ -1,3 +1,6 @@
+## Full guide: 
+https://tproger.ru/articles/podnimaem-full-spring-stend-mikroservisov-iz-monorepozitoriya-v-kubernetes/
+
 Digital marketplace
 
 
